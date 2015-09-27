@@ -5,9 +5,9 @@ import supertest from 'supertest';
 import app from 'healthcheck';
 import fs from 'fs';
 import root from 'rootrequire';
-import pkg from `${root}/package.json`;
 
 const
+  pkg = require(`${root}/package.json`);
   buildPath = `${root}/config/BUILD`,
   build = fs.readFileSync(buildPath, 'utf8').trim();
 
