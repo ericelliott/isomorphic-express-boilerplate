@@ -1,22 +1,21 @@
 'use strict';
 
-var
-  test = require('blue-tape'),
-  supertest = require('supertest'),
-  app = require('server'),
-  arrayIntersect = require('array-intersection');
+import test from 'blue-tape';
+import supertest from 'supertest';
+import app from 'server';
+import arrayIntersect from 'array-intersection';
 
-module.exports = function client () {
+export default function client () {
 
-  test('Index page route', function (assert) {
+  test('Index page route', (assert) => {
     supertest(app)
       .get('/')
       .expect(200)
-      .end(function (err, res) {
-        var
+      .end((err, res) => {
+        const
           body = res.text,
 
-          contains = function (response) {
+          contains = (response) => {
             return JSON.stringify(response).indexOf('Hello, world!') !== -1;
           };
 
@@ -29,12 +28,12 @@ module.exports = function client () {
       });
   });
 
-  test('X-powered by header', function (assert) {
+  test('X-powered by header', (assert) => {
     supertest(app)
       .get('/')
       .expect(200)
       .end(function (err, res) {
-        var
+        const
           headers = res.headers,
           headerKeys = Object.keys(headers),
           keys = ['X-powered-by', 'x-powered-by', 'X-Powered-By'],
