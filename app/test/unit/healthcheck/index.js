@@ -7,7 +7,7 @@ import fs from 'fs';
 import root from 'rootrequire';
 
 const
-  pkg = require(`${root}/package.json`);
+  pkg = require(`${root}/package.json`),
   buildPath = `${root}/config/BUILD`,
   build = fs.readFileSync(buildPath, 'utf8').trim();
 
