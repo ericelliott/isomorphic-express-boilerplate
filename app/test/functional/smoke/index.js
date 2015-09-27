@@ -1,11 +1,10 @@
 'use strict';
 
-var
-  selenium = require('selenium-sauce'),
-  test = require('blue-tape');
+import selenium from 'selenium-sauce';
+import test from 'blue-tape';
 
 // Loads the config file and invokes the callback once for each browser
-module.exports = new selenium({   // Configuration options
+export default new selenium({   // Configuration options
   quiet: false,           // Silences the console output
   webdriver: {            // Options for Selenium WebDriver (WebdriverIO)
     user: process.env.SAUCE_USERNAME,
