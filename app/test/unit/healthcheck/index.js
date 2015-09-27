@@ -5,10 +5,10 @@ import supertest from 'supertest';
 import app from 'healthcheck';
 import fs from 'fs';
 import root from 'rootrequire';
-import pkg from root + '/package.json';
+import pkg from `${root}/package.json`;
 
 const
-  buildPath = root + '/config/BUILD',
+  buildPath = `${root}/config/BUILD`,
   build = fs.readFileSync(buildPath, 'utf8').trim();
 
 export default function client () {
