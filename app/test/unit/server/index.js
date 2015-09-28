@@ -7,7 +7,7 @@ import arrayIntersect from 'array-intersection';
 
 export default function client () {
 
-  test('Index page route', (assert) => {
+  test('Index page route', assert => {
     supertest(app)
       .get('/')
       .expect(200)
@@ -28,7 +28,7 @@ export default function client () {
       });
   });
 
-  test('X-powered by header', (assert) => {
+  test('X-powered by header', assert => {
     supertest(app)
       .get('/')
       .expect(200)

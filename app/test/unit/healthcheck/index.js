@@ -6,14 +6,13 @@ import app from 'healthcheck';
 import fs from 'fs';
 import root from 'rootrequire';
 
-const
-  pkg = require(`${root}/package.json`),
-  buildPath = `${root}/config/BUILD`,
-  build = fs.readFileSync(buildPath, 'utf8').trim();
+const pkg = require(`${root}/package.json`);
+const buildPath = `${root}/config/BUILD`;
+const build = fs.readFileSync(buildPath, 'utf8').trim();
 
 export default function client () {
 
-  test('Healthcheck server', (assert) => {
+  test('Healthcheck server', assert => {
     supertest(app)
       .get('/version')
       .set('Accept', 'application/json')
