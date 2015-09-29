@@ -27,7 +27,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "bunyan-request-logger": "^1.0.1",
+    "bunyan-request-logger": "^1.0.2",
     "connect-cache-control": "^1.0.0",
     "duplex": "^1.0.0",
     "express": "^4.13.0",
