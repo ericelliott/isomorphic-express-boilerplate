@@ -1,27 +1,25 @@
 'use strict';
 
-var
-  test = require('blue-tape'),
-  supertest = require('supertest'),
-  app = require('healthcheck'),
-  fs = require('fs'),
-  root = require('rootrequire');
+import test from 'blue-tape';
+import supertest from 'supertest';
+import app from 'healthcheck';
+import fs from 'fs';
+import root from 'rootrequire';
 
-var
-  pkg = require(root + '/package.json'),
-  buildPath = root + '/config/BUILD',
-  build = fs.readFileSync(buildPath, 'utf8').trim();
+const pkg = require(`${root}/package.json`);
+const buildPath = `${root}/config/BUILD`;
+const build = fs.readFileSync(buildPath, 'utf8').trim();
 
-module.exports = function client () {
+export default function client () {
 
-  test('Healthcheck server', function (assert) {
+  test('Healthcheck server', assert => {
     supertest(app)
       .get('/version')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
-      .end(function (err, res) {
-        var
+      .end((err, res) => {
+        const
           body = JSON.parse(res.text),
           name = pkg.name,
           version = pkg.version;
@@ -41,4 +39,4 @@ module.exports = function client () {
       });
   });
 
-};
+}

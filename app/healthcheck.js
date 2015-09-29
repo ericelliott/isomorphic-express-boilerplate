@@ -1,13 +1,12 @@
 'use strict';
 
-var
-  app = require('healthcheck'),
-  configure = require('qconf');
+import app from 'healthcheck';
+import configure from 'qconf';
 
-var
+const
   config = configure(),
   port = config.get('healthcheck-port') || 3001;
 
 app.listen(port, function () {
-  app.log.info('Listening on port ' + port);
+  app.log.info(`Listening on port ${port}`);
 });

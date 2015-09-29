@@ -1,3 +1,3 @@
 'use strict';
 
-require('./smoke/index.js');
+import './smoke/index.js';
