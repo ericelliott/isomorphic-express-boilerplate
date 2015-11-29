@@ -1,13 +1,22 @@
 import React from 'react';
-import { render } from 'react-dom';
-import createApp from 'shared/components/app';
+import reactDom from 'react-dom/server';
+import { RoutingContext } from 'react-router';
 
-const App = createApp(React);
-const props = window.payload || {
-  title: 'Default client title'
+import { Provider } from 'react-redux';
+import configureStore from 'shared/configureStore';
+
+const render = reactDom.renderToString;
+
+const store = configureStore(window.BOOTSTRAP_CLIENT_STATE);
+
+store.subscribe(() => console.log(store.getState()));
+
+const createDOM = renderProps => {
+  return render(
+    <Provider store={store}>
+      <RoutingContext { ...renderProps } />
+    </Provider>
+  );
 };
 
-render(
-  <App { ...props } />,
-  document.getElementById('root')
-);
+export default createDOM;

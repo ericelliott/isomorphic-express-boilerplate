@@ -1,23 +1,28 @@
+import React from 'react';
+import { match } from 'react-router';
+
+import renderLayout from './render-layout';
+import render from './render';
 import settings from 'server/settings';
 
-import render from './render.js';
-import renderLayout from './render-layout.js';
+import configureStore from 'shared/configureStore';
+import createRoutes from 'shared/routes';
 
-const title = settings.TITLE;
-
-const props = {
-  title
-};
-
-const rootMarkup = render(props);
-
-// This will be rendered into the HTML to pass data to the client.
-const payload = `
-  var payload = {
-    title: '${ props.title }'
-  };
-`;
+const store = configureStore();
+const routes = createRoutes(React);
+const initialState = store.getState();
 
 export default (req, res) => {
-  res.send(renderLayout({ title, rootMarkup, payload}));
+  match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+    if (error) {
+      res.status(500).send(error.message);
+    } else if (redirectLocation) {
+      res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+    } else if (renderProps) {
+      const rootMarkup = render(renderProps, store);
+      res.status(200).send(renderLayout({ settings, rootMarkup, initialState }));
+    } else {
+      res.status(404).send('Not found');
+    }
+  });
 };

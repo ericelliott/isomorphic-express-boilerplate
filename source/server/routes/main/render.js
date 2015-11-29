@@ -1,14 +1,15 @@
 import React from 'react';
 import reactDom from 'react-dom/server';
-import createApp from 'shared/components/app';
+import { RoutingContext } from 'react-router';
+import { Provider } from 'react-redux';
 
-const render = reactDom.renderToStaticMarkup;
+const render = reactDom.renderToString;
 
-const App = createApp(React);
-
-const createDOM = (props) => {
+const createDOM = (renderProps, store) => {
   return render(
-    <App { ...props }></App>
+    <Provider store={store}>
+      <RoutingContext { ...renderProps } />
+    </Provider>
   );
 };
 
