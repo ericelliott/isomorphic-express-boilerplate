@@ -3,13 +3,14 @@ const initialState = {
   nav: {
     brand: 'Brand',
     locale: 'en'
-  },
-  items: {
-      { id: 1, text: 'Book 1', count: 2 },
-      { id: 2, text: 'Book 2', count: 3 },
-      { id: 3, text: 'Book 3', count: 4 }
   }
 };
+
+const initialBookState = [
+  { id: 1, text: 'Book 1', count: 2 },
+  { id: 2, text: 'Book 2', count: 3 },
+  { id: 3, text: 'Book 3', count: 4 },
+];
 
 const nav = (state =
   initialState.nav
@@ -23,9 +24,9 @@ const title = (state =
   return state;
 };
 
-const books = (state =
-  initialState.items,
-  action) => {
+const books = (state = {
+  items: initialBookState,
+}, action) => {
   switch (action.type) {
     case 'ADD_COUNT':
       const newItems = state.items.map(item => {

@@ -1,8 +1,6 @@
-import React from 'react';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 import { connect } from 'react-redux';
-import { routeActions } from 'redux-simple-router'
 
 import createTitle from 'shared/components/title';
 
