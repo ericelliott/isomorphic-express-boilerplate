@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import createTitle from 'shared/components/title';
-import createHelloWorld from 'shared/components/helloworld'
+import createHelloWorld from 'shared/components/helloworld';
 
 const createApp = React => ({ title }) => {
   const Title = createTitle(React);

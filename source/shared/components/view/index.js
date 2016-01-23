@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import createTitle from 'shared/components/title';
-import createTestData from 'shared/components/test-data'
+import createTestData from 'shared/components/test-data';
 
 const createApp = React => ({ dispatch, books, title }) => {
   const Title = createTitle(React);
