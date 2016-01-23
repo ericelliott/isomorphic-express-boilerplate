@@ -28,9 +28,12 @@ const store = createStoreWithMiddleware(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={ browserHistory }>
-      <Route path="/" component={ createApp(React) } />
-      <Route path="/test-data" component={ createTestData(React) } />
+    <Router history={browserHistory}>
+      <Route path='/' component={ createContainer(React) }>
+        <IndexRoute component={ createApp(React) } />
+        <Redirect from='/home' to='/' />
+        <Route path='view' component={ createView(React) } />
+      </Route>
     </Router>
   </Provider>,
   document.getElementById('root')
