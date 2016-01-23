@@ -24,10 +24,10 @@ const createNavigation = React => ({ nav }) => {
       <Navbar.Collapse className='bs-navbar-collapse' >
         <Nav role='navigation' id='top'>
           <IndexLinkContainer to='/'>
-            <NavItem eventKey={1}>Home</NavItem>
+            <NavItem eventKey={1}>HomeApp</NavItem>
           </IndexLinkContainer>
           <LinkContainer to='/view'>
-            <NavItem eventKey={2}>App</NavItem>
+            <NavItem eventKey={2}>ViewApp</NavItem>
           </LinkContainer>
         </Nav>
       </Navbar.Collapse>
