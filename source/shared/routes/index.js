@@ -3,7 +3,7 @@ import createContainer from 'shared/components/container';
 import createApp from 'shared/components/app';
 import createView from 'shared/components/view';
 
-export default React => {
+export default (React, browserHistory) => {
 
   return (
     <Router history={browserHistory}>
