@@ -1,30 +1,31 @@
-const initialBookState = [
-  { id: 1, text: 'Book 1', count: 2 },
-  { id: 2, text: 'Book 2', count: 3 },
-  { id: 3, text: 'Book 3', count: 4 },
-];
-
-const initialNavState = {
-  brand: 'Brand'
+const initialState = {
+  title: 'Page Title',
+  nav: {
+    brand: 'Brand',
+    locale: 'en'
+  },
+  items: {
+      { id: 1, text: 'Book 1', count: 2 },
+      { id: 2, text: 'Book 2', count: 3 },
+      { id: 3, text: 'Book 3', count: 4 }
+  }
 };
 
-const initialTitleState = 'Page Title';
-
 const nav = (state =
-  initialNavState
+  initialState.nav
 ) => {
   return state;
 };
 
 const title = (state =
-  initialTitleState
+  initialState.title
 ) => {
   return state;
 };
 
-const books = (state = {
-  items: initialBookState,
-}, action) => {
+const books = (state =
+  initialState.items,
+  action) => {
   switch (action.type) {
     case 'ADD_COUNT':
       const newItems = state.items.map(item => {
@@ -46,7 +47,7 @@ const books = (state = {
 const reducers = {
   nav,
   title,
-  books,
+  books
 };
 
 export default reducers;
