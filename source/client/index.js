@@ -27,8 +27,8 @@ const store = createStoreWithMiddleware(reducer);
 // reduxRouterMiddleware.listenForReplays(store)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={browserHistory}>
+  <Provider store={ store }>
+    <Router history={ browserHistory }>
       <Route path='/' component={ createContainer(React) }>
         <IndexRoute component={ createApp(React) } />
         <Redirect from='/home' to='/' />

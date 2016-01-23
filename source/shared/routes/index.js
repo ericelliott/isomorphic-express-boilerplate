@@ -6,7 +6,7 @@ import createView from 'shared/components/view';
 export default (React, browserHistory) => {
 
   return (
-    <Router history={browserHistory}>
+    <Router history={ browserHistory }>
       <Route path='/' component={ createContainer(React) }>
         <IndexRoute component={ createApp(React) } />
         <Redirect from='/home' to='/' />
