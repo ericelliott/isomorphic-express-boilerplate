@@ -2,7 +2,7 @@ import test from 'tape';
 import request from 'supertest';
 import app from 'server/app.js';
 
-const route = '/test-data';
+const route = '/view';
 
 test(`GET ${ route }`, nest => {
   nest.test(route, assert => {
