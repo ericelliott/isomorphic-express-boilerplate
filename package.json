@@ -1,6 +1,6 @@
 {
   "name": "universal-react-boilerplate",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "A new Webpack boilerplate with hot reloading React components, and error handling on module and component level.",
   "scripts": {
     "clean": "rimraf build",
@@ -70,12 +70,9 @@
   "dependencies": {
     "express": "4.13.3",
     "react": "0.14.5",
-    "react-bootstrap": "^0.28.2",
     "react-dom": "0.14.2",
-    "react-intl": "2.0.0-beta-2",
     "react-redux": "4.0.0",
     "react-router": "2.0.0-rc5",
-    "react-router-bootstrap": "^0.20.1",
     "redux": "3.0.4",
     "redux-logger": "2.0.4",
     "redux-simple-router": "2.0.3",

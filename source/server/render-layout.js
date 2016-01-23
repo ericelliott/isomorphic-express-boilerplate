@@ -1,13 +1,15 @@
-export default ({title, rootMarkup, payload}) => {
+export default ({ settings, rootMarkup, initialState }) => {
   return `
     <!doctype html>
     <html>
       <head>
-        <title>${ title }</title>
+        <title>${ settings.TITLE }</title>
       </head>
       <body>
         <div id='root'>${ rootMarkup }</div>
-        <script>${ payload }</script>
+        <script>
+          window.BOOTSTRAP_CLIENT_STATE = ${JSON.stringify(initialState)}
+        </script>
         <script src="/static/index.js"></script>
       </body>
     </html>

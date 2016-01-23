@@ -1,15 +1,11 @@
-import React from 'react';
-import reactDom from 'react-dom/server';
-import createApp from 'shared/components/app';
+import { renderToString } from 'react-dom/server';
+import { RouterContext } from 'react-router';
+import { Provider } from 'react-redux';
 
-const render = reactDom.renderToStaticMarkup;
-
-const App = createApp(React);
-
-const createDOM = (props) => {
-  return render(
-    <App { ...props }></App>
+export default React => (renderProps, store) => {
+  return renderToString(
+    <Provider store={store}>
+      <RouterContext { ...renderProps } />
+    </Provider>
   );
 };
-
-export default createDOM;

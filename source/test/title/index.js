@@ -10,11 +10,9 @@ const render = reactDom.renderToStaticMarkup;
 
 test('Title', assert => {
   const titleText = 'Hello!';
-  const props = {
-    title: titleText,
-    className: 'title'
-  };
+  const props = { title: titleText, className: 'title' };
   const re = new RegExp(titleText, 'g');
+
   const el = <Title { ...props } />;
   const $ = dom.load(render(el));
   const output = $('.title').html();
