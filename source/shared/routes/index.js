@@ -1,13 +1,17 @@
-import { Router, Route } from 'react-router';
+import { Router, Route, IndexRoute, Redirect, browserHistory } from 'react-router';
+import createContainer from 'shared/components/container';
 import createApp from 'shared/components/app';
-import createTestData from 'shared/components/test-data';
+import createView from 'shared/components/view';
 
 export default React => {
 
   return (
-    <Router>
-      <Route path="/" component={ createApp(React) } />
-      <Route path="/test-data" component={ createTestData(React) } />
+    <Router history={browserHistory}>
+      <Route path='/' component={ createContainer(React) }>
+        <IndexRoute component={ createApp(React) } />
+        <Redirect from='/home' to='/' />
+        <Route path='view' component={ createView(React) } />
+      </Route>
     </Router>
   );
 };

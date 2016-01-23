@@ -1,13 +1,31 @@
 import { routeReducer } from 'redux-simple-router';
 
-const initialState = [
+const initialBookState = [
   { id: 1, text: 'Book 1', count: 2 },
   { id: 2, text: 'Book 2', count: 3 },
   { id: 3, text: 'Book 3', count: 4 },
 ];
 
+const initialNavState = {
+  brand: 'Brand'
+};
+
+const initialTitleState = 'Page Title';
+
+const nav = (state =
+  initialNavState
+) => {
+  return state;
+};
+
+const title = (state =
+  initialTitleState
+) => {
+  return state;
+};
+
 const books = (state = {
-  items: initialState,
+  items: initialBookState,
 }, action) => {
   switch (action.type) {
     case 'ADD_COUNT':
@@ -29,6 +47,8 @@ const books = (state = {
 
 const reducers = {
   routing: routeReducer,
+  nav,
+  title,
   books,
 };
 

@@ -1,22 +1,21 @@
 import { connect } from 'react-redux';
 import createTitle from 'shared/components/title';
-import createHelloWorld from 'shared/components/helloworld'
+import createTestData from 'shared/components/test-data'
 
-const createApp = React => ({ title }) => {
+const createApp = React => ({ dispatch, books, title }) => {
   const Title = createTitle(React);
-  const HelloWorld = createHelloWorld(React);
-
+  const DataComponent = createTestData(React);
   return (
     <div>
       <Title title={ title } />
-      <HelloWorld />
+      <DataComponent dispatch={ dispatch } books={ books } />
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  const { title } = state;
-  return { title };
+  const { title, books } = state;
+  return { title, books };
 };
 
 // Connect props to component
