@@ -1,4 +1,4 @@
-import app from 'server/app';
+import app from './source/server/app';
 import webpack from 'webpack';
 import config from './webpack.config.dev';
 
