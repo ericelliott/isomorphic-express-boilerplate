@@ -15,7 +15,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('/', mainRoute);
+app.get('*', mainRoute);
 
 app.listen(3000, 'localhost', (err) => {
   if (err) {
