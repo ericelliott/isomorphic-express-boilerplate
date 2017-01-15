@@ -1,11 +1,11 @@
 machine:
   node:
-    version: v4.2.6
+    version: v6
 
 
 dependencies:
   pre:
-    - npm install -g npm@3
+    - npm install -g npm@latest
     - npm set progress=false
 
 test:
